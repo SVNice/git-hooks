@@ -1,0 +1,7 @@
+# Get files changed
+changed_files
+# run quick check
+for file in changed_files; do
+    # check file
+    tox commit-check -- -x $file
+done
