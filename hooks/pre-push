@@ -1,2 +1,2 @@
 # Run full tox check
-tox -e push-check
+tox
