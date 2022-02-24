@@ -1,0 +1,8 @@
+#
+# Get files changed
+changed_files=$(git diff-index --cached HEAD | grep .py)
+# run quick check
+for file in changed_files; do
+    # check file
+    flake8 $changed_files
+done

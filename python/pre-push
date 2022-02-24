@@ -1,0 +1,22 @@
+# 
+folders="src tests"
+
+# flake8
+result=$(flake8 $folders)
+status=$?
+[ $status -eq 0 ] || echo -e "flake8 faliled\n$result"; exit 1
+
+# pylint
+result=$(pylint $folders)
+status=$?
+[ $status -eq 0 ] || echo -e "Pylint faliled\n$result"; exit 1
+
+# pytest
+result=$(pytest)
+status=$?
+[ $status -eq 0 ] || echo -e "Pytest faliled\n$result"; exit 1
+
+# coverage
+# result=$(pylint --with-coverage --cover-tests)
+# status=$?
+# [ $status -eq 0 ] || echo -e "Pylint coverage faliled\n$result"; exit 1
